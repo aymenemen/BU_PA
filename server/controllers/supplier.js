@@ -1,4 +1,4 @@
-import Supplier from "../modals/supplier";
+import Supplier from "../modals/supplier.js";
 
 
 

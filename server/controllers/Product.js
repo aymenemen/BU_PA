@@ -1,4 +1,4 @@
-import Product from "../modals/Product";
+import Product from "../modals/Product.js";
 
 
 

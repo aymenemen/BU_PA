@@ -1,4 +1,4 @@
-import Order from "../modals/orders";
+import Order from "../modals/orders.js";
 
 
 export const createOrder = async (req, res) => {

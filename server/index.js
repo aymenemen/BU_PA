@@ -7,14 +7,14 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { register } from "./controllers/auth";
-import { createProduct } from "./controllers/Product";
-import { verifyToken } from "./middleware/auth";
-import authRoutes from './routes/auth';
-import userRoutes from './routes/User';
-import productRoutes from './routes/Product';
-import ordersRoutes from './routes/Orders';
-import supplierRoutes from './routes/Supplier';
+import { register } from "./controllers/auth.js";
+import { createProduct } from "./controllers/Product.js";
+import { verifyToken } from "./middleware/auth.js";
+import authRoutes from './routes/auth.js';
+import userRoutes from './routes/User.js';
+import productRoutes from './routes/Product.js';
+import ordersRoutes from './routes/Orders.js';
+import supplierRoutes from './routes/Supplier.js';
 
 
 
