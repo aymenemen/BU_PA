@@ -7,6 +7,15 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { register } from "./controllers/auth";
+import { createProduct } from "./controllers/Product";
+import { verifyToken } from "./middleware/auth";
+import authRoutes from './routes/auth';
+import userRoutes from './routes/User';
+import productRoutes from './routes/Product';
+import ordersRoutes from './routes/Orders';
+import supplierRoutes from './routes/Supplier';
+
 
 
 //config:
@@ -48,5 +57,15 @@ mongoose.connect(process.env.MONGO_URL, {
 }).catch(
     (error)=> console.log(`${error} did not connect`)
 );
-// still needs routes 
+
+// routes with files 
+app.post("/auth/register",upload.single('picture'),register)
+app.post("/products",verifyToken,upload.single('picture'),createProduct);
+
+
 //and routes with files
+app.use('/auth',authRoutes);
+app.use('/users',userRoutes);
+app.use('/orders',ordersRoutes);
+app.use('/supplier',supplierRoutes);
+app.use('/products',productRoutes);
