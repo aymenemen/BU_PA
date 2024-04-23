@@ -8,10 +8,11 @@ export default {
   },
   plugins: [flowbite.plugin()],
   screens: {
-    'sm': {'max': '639px'},
-    'md': {'max': '767px'},
-    'lg': {'max': '1023px'},
-    'xl': {'max': '1279px'},
+    'xs': {'min': '339px'},
+    'sm': {'min': '639px'},
+    'md': {'min': '767px'},
+    'lg': {'min': '1023px'},
+    'xl': {'min': '1279px'},
   },
   
 }

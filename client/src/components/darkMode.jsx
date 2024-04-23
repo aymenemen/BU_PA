@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 
 
-const DarkMode=()=>{
+const DarkMode=(props)=>{
     const [isDark,setDark]=useState(true)
-    const handleDarkMode=()=>{
-        setDark(!isDark)
-    }
+    const handleDarkMode = () => {
+        const newDarkMode = !isDark;
+        setDark(newDarkMode);
+        props.setIsDark(newDarkMode); // Update parent component with the new value
+    };
     useEffect(
         ()=>{document.documentElement.classList.toggle("dark",isDark)
             document.body.classList.toggle("dark",isDark)},[isDark]
