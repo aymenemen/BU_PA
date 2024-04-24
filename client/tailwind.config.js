@@ -9,7 +9,7 @@ export default {
   plugins: [flowbite.plugin()],
   screens: {
     'xs': {'min': '339px'},
-    'sm': {'min': '639px'},
+    'sm': {'min': '766px'},
     'md': {'min': '767px'},
     'lg': {'min': '1023px'},
     'xl': {'min': '1279px'},

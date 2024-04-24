@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import DarkMode from './darkMode'
 import logo from '../assets/logoSlogan.png'
@@ -112,7 +111,7 @@ const Login = () => {
               <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-emerald-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
 
               <button type="submit" className="text-white mt-10 mb-auto bg-emerald-800  hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-800">Create</button>
-              <p className='dark:text-white  mt-4'>already have an account  ? <a className=' text-emerald-800 hover:scale-105 hover:underline hover:cursor-pointer ' onClick={()=>{setAccount(!account)}}>Create account</a></p>
+              <p className='dark:text-white  mt-4'>already have an account ? <a className=' text-emerald-800 hover:scale-105 hover:underline hover:cursor-pointer ' onClick={()=>{setAccount(!account)}}>Create account</a></p>
           </form>
         </div>}
   </div>
