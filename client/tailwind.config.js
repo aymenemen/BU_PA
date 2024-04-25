@@ -6,7 +6,9 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [flowbite.plugin()],
+  plugins: [flowbite.plugin({
+    charts:true,  
+  })],
   screens: {
     'xs': {'min': '339px'},
     'sm': {'min': '766px'},
