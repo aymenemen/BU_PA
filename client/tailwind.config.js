@@ -16,6 +16,14 @@ export default {
     'lg': {'min': '1023px'},
     'xl': {'min': '1279px'},
   },
-  
+  theme: {
+    extend: {
+      fontFamily: {
+        Ubuntu: ["Ubuntu", "sans-serif"],
+        Jacquard: ["Jacquard", "sans-serif"],
+        Jacquarda: ["Jacquarda Bastarda 9 Charted", "sans-serif"],
+      }
+    },
+  },
 }
 

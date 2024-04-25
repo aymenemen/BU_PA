@@ -15,6 +15,10 @@ import userRoutes from './routes/User.js';
 import productRoutes from './routes/Product.js';
 import ordersRoutes from './routes/Orders.js';
 import supplierRoutes from './routes/Supplier.js';
+import clientRoutes from './routes/Client.js';
+import salesRoutes from './routes/Sales.js';
+import expenseRoutes from './routes/expense.js';
+
 
 
 
@@ -69,3 +73,6 @@ app.use('/users',userRoutes);
 app.use('/orders',ordersRoutes);
 app.use('/supplier',supplierRoutes);
 app.use('/products',productRoutes);
+app.use('/sale',salesRoutes);
+app.use('/expense',expenseRoutes);
+app.use('/client',clientRoutes);
