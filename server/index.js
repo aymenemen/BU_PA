@@ -67,7 +67,7 @@ app.post("/auth/register",upload.single('picture'),register)
 app.post("/products",verifyToken,upload.single('picture'),createProduct);
 
 
-//and routes with files
+//and routes 
 app.use('/auth',authRoutes);
 app.use('/users',userRoutes);
 app.use('/orders',ordersRoutes);

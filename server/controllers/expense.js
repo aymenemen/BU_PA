@@ -3,7 +3,7 @@ import Expense from "../modals/expenses.js";
 export const createExpense = async (req, res) => {
     try {
         const { ExpenseId, Type, Sum } = req.body;
-        const expense = new Expense({ Product, Quantity, OrderId, ExpectedDate, Status });
+        const expense = new Expense({ ExpenseId,Type, Sum});
         const savedExpense = await expense.save();
         res.status(201).json(savedExpense);
     } catch (error) {

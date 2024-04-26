@@ -5,8 +5,7 @@ const ClientSchema = new mongoose.Schema(
         ClientId:{
             type: String,
             required:true,
-            min : 2,
-            max: 50,
+            unique:true,
         },
         Name:{
         type: String,
@@ -24,12 +23,12 @@ const ClientSchema = new mongoose.Schema(
             type: String,
             required: true,
             max: 50,
-            unique: true,
+            
             
         },
         
     },{timestamps:true}
 );
 
-const Client = mongoose.model('Client',ClientSchema);
+const Client = mongoose.model('clients',ClientSchema);
 export default Client;

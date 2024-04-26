@@ -7,11 +7,11 @@ import User from "../modals/User.js";
 export const register = async (req,res)=>{
     try{
         const {
-            firstName,
-            lastName,
-            email,
-            password,
-            picturePath,
+                firstName,
+                lastName,
+                email,
+                password,
+                picturePath,
            
         }=req.body;
         const salt = await bycrypt.genSalt();

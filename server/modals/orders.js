@@ -14,6 +14,7 @@ const OrderSchema= new mongoose.Schema(
     OrderId:{
         type: String,
         required:true,
+        unique:true,
     },
     ExpectedDate:{
         type: String,
