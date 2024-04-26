@@ -9,7 +9,7 @@ router.get('/:id',getExpenseById);
 
 router.post('/',createExpense);
 
-router.put('/:id',updateExpense);
+router.patch('/:id',updateExpense);
 
 router.delete('/:id',deleteExpense);
 

@@ -23,7 +23,7 @@ export const getSaless = async (req, res) => {
 export const getSalesById = async (req, res) => {
     try {
         const { id } = req.params;
-        const sale = await Sales.findById(id);
+        const sale = await Sales.findOne({SaleId:id});
         if (!sale) return res.status(404).json({ message: 'Sales not found' });
         res.status(200).json(sale);
     } catch (error) {
@@ -34,7 +34,7 @@ export const getSalesById = async (req, res) => {
 export const updateSale = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedSale = await Sales.findByIdAndUpdate(id, req.body, { new: true });
+        const updatedSale = await Sales.findOneAndUpdate({SaleId:id}, req.body, { new: true });
         if (!updatedSale) return res.status(404).json({ message: 'Sales not found' });
         res.status(200).json(updatedSale);
     } catch (error) {
@@ -45,7 +45,7 @@ export const updateSale = async (req, res) => {
 export const deleteSale = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedSale = await Sales.findByIdAndDelete(id);
+        const deletedSale = await Sales.findOneAndDelete({SaleId:id});
         if (!deletedSale) return res.status(404).json({ message: 'Sales not found' });
         res.status(200).json({ message: 'Sales deleted successfully' });
     } catch (error) {

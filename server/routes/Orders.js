@@ -10,7 +10,7 @@ router.get('/',getOrders);
 
 router.get('/:id',getOrderById);
 
-router.put('/:id',updateOrder);
+router.patch('/:id',updateOrder);
 
 router.delete('/:id',deleteOrder);
 

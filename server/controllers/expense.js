@@ -23,7 +23,7 @@ export const getExpense = async (req, res) => {
 export const getExpenseById = async (req, res) => {
     try {
         const { id } = req.params;
-        const expense = await Expense.findById(id);
+        const expense = await Expense.findOne({ExpenseId:id});
         if (!expense) return res.status(404).json({ message: 'Expense not found' });
         res.status(200).json(expense);
     } catch (error) {
@@ -34,7 +34,7 @@ export const getExpenseById = async (req, res) => {
 export const updateExpense = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedExpense = await Expense.findByIdAndUpdate(id, req.body, { new: true });
+        const updatedExpense = await Expense.findOneAndUpdate({ExpenseId: id}, req.body, { new: true });
         if (!updatedExpense) return res.status(404).json({ message: 'Expense not found' });
         res.status(200).json(updatedExpense);
     } catch (error) {
@@ -45,7 +45,7 @@ export const updateExpense = async (req, res) => {
 export const deleteExpense = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedExpense = await Expense.findByIdAndDelete(id);
+        const deletedExpense = await Expense.findOneDelete({ClientID:id});
         if (!deletedExpense) return res.status(404).json({ message: 'Expense not found' });
         res.status(200).json({ message: 'Expense deleted successfully' });
     } catch (error) {

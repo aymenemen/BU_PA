@@ -25,7 +25,7 @@ export const getSuppliers = async (req, res) => {
 export const getSupplierById = async (req, res) => {
     try {
         const { id } = req.params;
-        const supplier = await Supplier.findById(id);
+        const supplier = await Supplier.findOne({SupplierId:id});
         if (!supplier) return res.status(404).json({ message: 'Supplier not found' });
         res.status(200).json(supplier);
     } catch (error) {
@@ -36,7 +36,7 @@ export const getSupplierById = async (req, res) => {
 export const updateSupplier = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedSupplier = await Supplier.findByIdAndUpdate(id, req.body, { new: true });
+        const updatedSupplier = await Supplier.findOneAndUpdate({SupplierId:id}, req.body, { new: true });
         if (!updatedSupplier) return res.status(404).json({ message: 'Supplier not found' });
         res.status(200).json(updatedSupplier);
     } catch (error) {
@@ -47,7 +47,7 @@ export const updateSupplier = async (req, res) => {
 export const deleteSupplier = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedSupplier = await Supplier.findByIdAndDelete(id);
+        const deletedSupplier = await Supplier.findOneAndDelete({SupplierId:id});
         if (!deletedSupplier) return res.status(404).json({ message: 'Supplier not found' });
         res.status(200).json({ message: 'Supplier deleted successfully' });
     } catch (error) {

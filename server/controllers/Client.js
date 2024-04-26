@@ -24,18 +24,17 @@ export const getClients = async (req, res) => {
 export const getClientById = async (req, res) => {
     try {
         const { id } = req.params;
-        const client = await Client.findById(id);
+        const client = await Client.findOne({ ClientId: id });
         if (!client) return res.status(404).json({ message: 'Client not found' });
         res.status(200).json(client);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
-
 export const updateClient = async (req, res) => {
     try {
         const { id } = req.params;
-        const updatedClient = await Client.findOneAndUpdate(id, req.body, { new: true });
+        const updatedClient = await Client.findOneAndUpdate({ClientId:id}, req.body, { new: true });
         if (!updatedClient) return res.status(404).json({ message: 'Client not found' });
         res.status(200).json(updatedClient);
     } catch (error) {
@@ -46,7 +45,7 @@ export const updateClient = async (req, res) => {
 export const deleteClient = async (req, res) => {
     try {
         const { id } = req.params;
-        const deletedClient = await Client.findByIdAndDelete(id);
+        const deletedClient = await Client.findOneAndDelete({ClientId:id});
         if (!deletedClient) return res.status(404).json({ message: 'Client not found' });
         res.status(200).json({ message: 'Client deleted successfully' });
     } catch (error) {

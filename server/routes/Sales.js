@@ -9,7 +9,7 @@ router.get('/:id',getSalesById);
 
 router.post('/',createSale);
 
-router.put('/:id',updateSale);
+router.patch('/:id',updateSale);
 
 router.delete('/:id',deleteSale);
 

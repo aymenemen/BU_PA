@@ -5,8 +5,7 @@ const SalesSchema = new mongoose.Schema(
         SaleId:{
             type: String,
             required:true,
-            min : 2,
-            max: 50,
+            unique:true,
         },
         clientId:{
             type: Number,

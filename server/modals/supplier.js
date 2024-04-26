@@ -8,6 +8,11 @@ const SupplierSchema= new mongoose.Schema(
             min : 2,
             max: 50,
         },
+        SupplierId:{
+            type: String,
+            required:true,
+            unique:true,
+        },
         Product:{
             type: String,
             required:true,
