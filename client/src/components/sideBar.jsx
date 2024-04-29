@@ -9,7 +9,7 @@ const SideBar = () => {
   return (
     <>
     
-<nav className='w-auto flex mt-2'>
+<nav className='w-auto flex mt-2 '>
 <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
    <span className="sr-only">Open sidebar</span>
    <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@ const SideBar = () => {
 </button>
 
   
-<form className=' w-3/4 lg:ml-72  md:ml-72 sm:ml-24 xs:ml-24 flex-auto'>   
+<form className=' w-3/4 lg:ml-60  md:ml-72 sm:ml-24 xs:ml-24 flex-auto'>   
     <label htmlFor="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
     <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -35,7 +35,7 @@ const SideBar = () => {
 <img className="w-10 h-10 rounded mt-2 mr-2" src={pfp} alt="Rounded avatar"/>
 
 </nav>
-<aside id="logo-sidebar" className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0 md:translate-x-0" aria-label="Sidebar">
+<aside id="logo-sidebar" className="fixed top-0 left-0 z-40 w-56 h-screen transition-transform -translate-x-full sm:translate-x-0 md:translate-x-0 " aria-label="Sidebar">
    <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
       <a href="#" className="flex items-center ps-2.5 mb-5">
          <img src={logo} className=" me-3 " width={'150vh'} alt="Logo" />
@@ -91,7 +91,7 @@ const SideBar = () => {
          
         
       </ul>
-            <a href="#" className=" mt-c flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <a href="#" className=" mt-96 flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <svg className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                   <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"/>
                 </svg>  

@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DarkMode from './darkMode'
 import logo from '../assets/logoSlogan.png'
 import logoLight from '../assets/logoLight.png'
 import userLight from '../assets/user (2).png'
 import user from '../assets/user (1).png'
+import { useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
-    const [isDark,setIsDark]=useState(false);
+    useEffect(() => {
+        const documentClass = document.documentElement.className;
+        if (documentClass.toLowerCase !== 'dark'){
+            setT(!t)
+        }
+        
+        console.log(documentClass);
+      }, );
+    
+    const [t,setT]=useState(true);
+    const [isDark,setIsDark]=useState(t);
     const [account,setAccount]=useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -14,7 +26,9 @@ const Login = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    
 
+    const navigate=useNavigate()
     const handleEmail = (e) => {
         setEmail(e.target.value);
     };
@@ -78,7 +92,7 @@ const Login = () => {
                   <label for="floating_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-emerald-600 peer-focus:dark:text-emerald-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
               </div>
 
-              <button type="submit" className="text-white mt-20 mb- bg-emerald-800  hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-800">Sign in</button>
+              <button type="submit" onClick={()=>navigate('/dashboard')} className="text-white mt-20 mb- bg-emerald-800  hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-emerald-600 dark:hover:bg-emerald-700 dark:focus:ring-800">Sign in</button>
               <p className='dark:text-white  mt-4'>Don't have an account ? <a className=' text-emerald-800 hover:scale-105 hover:underline hover:cursor-pointer ' onClick={()=>{setAccount(!account)}}>create one</a></p>
           </form>
         </div> :
