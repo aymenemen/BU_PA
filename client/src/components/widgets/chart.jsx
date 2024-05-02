@@ -201,4 +201,4 @@ const Chartc = () => {
   );
 };
 
-export default Chartc;
+export default Chartc ;

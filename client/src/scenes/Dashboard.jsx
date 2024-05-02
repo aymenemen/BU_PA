@@ -3,6 +3,7 @@ import Chartc from '../components/widgets/chart';
 import Lchart from '../components/widgets/Lchart';
 import ProductList from '../components/widgets/ProductList';
 import SideBar from '../components/sideBar';
+import ClientList from '../components/widgets/ClientList';
 
 const Dashboard = () => {
   const [saleAmount, setSaleAmount] = useState(80);
@@ -251,8 +252,11 @@ const Dashboard = () => {
         <Lchart />
       </div>
     </div>
-    <div className="ml-2 w-4/12">
-      <ProductList className="h-auto mt-8  rounded-lg" />
+    <div className="ml-2 w-4/12 flex-col">
+      <ProductList className="h-1/2 mt-8  rounded-lg overflow-auto" />
+
+      
+      <ClientList className="h-auto mt-2 overflow-auto rounded-lg"/>
     </div>
   </div>
 </div>

@@ -8,6 +8,12 @@ const ProductSchema = new mongoose.Schema(
             min : 2,
             max: 50,
         },
+        UserId:{
+            type: String,
+            min : 2,
+            max: 50,
+        },
+
         ProductId:{
             type: Number,
             required:true,

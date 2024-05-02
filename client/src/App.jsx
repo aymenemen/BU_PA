@@ -1,13 +1,11 @@
-
 import Login from "./components/Auth"
-import Suppliers from "./scenes/Supplier"
-import SideBar from "./components/sideBar"  
-import StockTable from "./components/widgets/stockTable"
 import Dashboard from "./scenes/Dashboard"
 import Inventory from "./scenes/Products.jsx"
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import PurchaseDetails from "./scenes/Purchase.jsx"
-import Store from "./scenes/Store.jsx"
+import Store from "./scenes/Supplier.jsx"
+import SalesDetails from "./scenes/Sale.jsx"
+import OrdersDetails from "./scenes/orders.jsx"
+import Modal from "./components/AddProduct.jsx"
 
 
 
@@ -22,9 +20,10 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/product" element={<Inventory />} />
-        <Route path="/purchase" element={<PurchaseDetails />} />
+        <Route path="/Sales" element={<SalesDetails />} />
         <Route path="/supplier" element={<Store />} />
-        <Route path="/test" element={<StockTable />} />
+        <Route path="/order" element={<OrdersDetails />} />
+        <Route path="/test" element={<Modal />} />
         
           
         

@@ -54,3 +54,35 @@
   .mt-c{
     margin-top: 34rem;
   }
+
+
+
+
+  @media (prefers-color-scheme: dark) {
+    
+    ::-webkit-scrollbar {
+      width: 6px;
+      background-color: transparent;
+    }
+  
+    
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  
+    
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 50px ;
+    }
+  
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+
+.h-custom{
+  height: 55vh;
+}

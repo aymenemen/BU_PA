@@ -1,28 +1,61 @@
 import React, { useState, useEffect, useContext } from "react";
+
+import SideBar from "../components/sideBar.jsx";
 import AddSale from "../components/AddSale.jsx";
 
 
-function Sales() {
-  const [showSaleModal, setShowSaleModal] = useState(false);
-  const [sales, setAllSalesData] = useState([]);
+function SalesDetails() {
+  const [showPurchaseModal, setPurchaseModal] = useState(false);
+  const [purchase, setAllPurchaseData] = useState( [
+    {
+      SaleId: "SALE001",
+      clientName: 'ch',
+      ProductName: "Product 1",
+      Date: "2022-01-01",
+      price: 10.99,
+      quantity: 5,
+    },
+    {
+      SaleId: "SALE002",
+      clientName: 'ay',
+      ProductName: "Product 2",
+      Date: "2022-02-15",
+      price: 19.99,
+      quantity: 2,
+    },
+    {
+      SaleId: "SALE003",
+      clientName: 'tt',
+      ProductName: "Product 3",
+      Date: "2022-03-10",
+      price: 8.99,
+      quantity: 10,
+    },
+    {
+      SaleId: "SALE004",
+      clientName: 'ee',
+      ProductName: "Product 4",
+      Date: "2022-04-20",
+      price: 5.99,
+      quantity: 3,
+    },
+  ]);
   const [products, setAllProducts] = useState([]);
-  const [stores, setAllStores] = useState([]);
   const [updatePage, setUpdatePage] = useState(true);
 
   
 
   // useEffect(() => {
-  //   fetchSalesData();
+  //   fetchPurchaseData();
   //   fetchProductsData();
-  //   fetchStoresData();
   // }, [updatePage]);
 
-  // Fetching Data of All Sales
-  const fetchSalesData = () => {
-    fetch(`http://localhost:4000/api/sales/get/${authContext.user}`)
+  // Fetching Data of All Purchase items
+  const fetchPurchaseData = () => {
+    fetch(`http://localhost:4000/api/purchase/get/${authContext.user}`)
       .then((response) => response.json())
       .then((data) => {
-        setAllSalesData(data);
+        setAllPurchaseData(data);
       })
       .catch((err) => console.log(err));
   };
@@ -37,92 +70,99 @@ function Sales() {
       .catch((err) => console.log(err));
   };
 
-  // Fetching Data of All Stores
-  const fetchStoresData = () => {
-    fetch(`http://localhost:4000/api/store/get/${authContext.user}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setAllStores(data);
-      });
-  };
-
   // Modal for Sale Add
   const addSaleModalSetting = () => {
-    setShowSaleModal(!showSaleModal);
+    setPurchaseModal(!showPurchaseModal);
   };
 
+  
   // Handle Page Update
   const handlePageUpdate = () => {
     setUpdatePage(!updatePage);
   };
 
   return (
-    <div className="col-span-12 lg:col-span-10  flex justify-center">
-      <div className=" flex flex-col gap-5 w-11/12">
-        {showSaleModal && (
-          <AddSale
+    <>
+    <SideBar/>
+    <div className="col-span-12 lg:col-span-10  flex justify-end">
+      <div className=" flex flex-col gap-5 w-10/12 mt-10 mr-3">
+        {showPurchaseModal && (
+          <AddPurchaseDetails
             addSaleModalSetting={addSaleModalSetting}
             products={products}
-            stores={stores}
             handlePageUpdate={handlePageUpdate}
-            authContext={authContext}
+            authContext = {authContext}
           />
         )}
         {/* Table  */}
-        <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 ">
+        <div className="overflow-x-auto rounded-lg border bg-white border-gray-200 dark:border-gray-800 dark:bg-gray-800 ">
           <div className="flex justify-between pt-5 pb-3 px-3">
             <div className="flex gap-4 justify-center items-center ">
-              <span className="font-bold">Sales</span>
+              <span className="font-bold dark:text-gray-300">Sales details </span>
             </div>
             <div className="flex gap-4">
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 text-xs  rounded"
-                onClick={addSaleModalSetting}
-              >
-                {/* <Link to="/inventory/add-product">Add Product</Link> */}
-                Add Sales
-              </button>
+            <AddSale/>
             </div>
           </div>
           <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
             <thead>
               <tr>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
                   Product Name
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Store Name
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
+                  Client Name 
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Stock Sold
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
+                  Quantity 
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Sales Date
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
+                  Price 
                 </th>
-                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
-                  Total Sale Amount
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
+                  Date
+                </th>
+                <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 dark:text-gray-300">
+                  Action
                 </th>
               </tr>
             </thead>
 
-            <tbody className="divide-y divide-gray-200">
-              {sales.map((element, index) => {
+            <tbody className="">
+              {purchase.map((element, index) => {
                 return (
                   <tr key={element._id}>
-                    <td className="whitespace-nowrap px-4 py-2  text-gray-900">
-                      {element.ProductID?.name}
+                    <td className="whitespace-nowrap px-4 py-2  text-gray-900 dark:text-gray-300">
+                      {element.ProductName}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-300">
+                      {element.clientName}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-300">
+                      {element.quantity}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-300">
+                    {element.price}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-gray-300">
+                    {new Date(element.Date).toLocaleDateString() ==
+                      new Date().toLocaleDateString()
+                        ? "Today"
+                        : element.Date} 
                     </td>
                     <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      {element.StoreID?.name}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      {element.StockSold}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      {element.SaleDate}
-                    </td>
-                    <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-                      ${element.TotalSaleAmount}
+                      {/* <span
+                        className="text-green-700 cursor-pointer"
+                        onClick={() => updateProductModalSetting(element)}
+                      >
+                        Edit{" "}
+                      </span> */}
+                      <span
+                        className="text-red-600 px-2 cursor-pointer"
+                        onClick={() => deleteItem(element._id)}
+                      >
+                        Delete
+                      </span>
                     </td>
                   </tr>
                 );
@@ -132,7 +172,8 @@ function Sales() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
-export default Sales;
+export default SalesDetails;
